@@ -2,7 +2,7 @@
 #include <stdio.h>
 #include <stdlib.h>
 
-void init(int_array *array, const int capacity)
+void init(int_array *array, const int capacity) //배열 초기화 함수
 {
   array->capacity = capacity;
   array->ptr = (int *)malloc(sizeof(int) * capacity);
@@ -11,14 +11,14 @@ void init(int_array *array, const int capacity)
 
 int peek(int_array *array, const int index)
 {
-  if (index < 0 && index >= array->size)
+  if (index < 0 && index >= array->size) //인덱스가 범위내에 없으면 0리턴
     return 0;
-  return array->ptr[index];
+  return array->ptr[index]; //그게아닌경우 해당 index에 위치하는 value 리턴
 }
 
-int insert(int_array *array, const int index, const int value)
+int insert(int_array *array, const int index, const int value) //삽입메소드
 {
-  if ((index >= 0) && (index <= array->size))
+  if ((index >= 0) && (index <= array->size)) // index가 범위 내에 있는경우
   {
     for (int i = (array->size - 1); i >= index; i--)
       array->ptr[i + 1] = array->ptr[i];
@@ -29,15 +29,15 @@ int insert(int_array *array, const int index, const int value)
 
 void push(int_array *array, const int value)
 {
-  if (array->size == array->capacity)
+  if (array->size == array->capacity) //배열이 꽉찬경우
   {
     free(array->ptr);
-    realloc(array->ptr, sizeof(int) * (array->capacity * 2));
-    array->capacity *= 2;
+    realloc(array->ptr, sizeof(int) * (array->capacity * 2)); //재할당+capacity를 2배 늘려줌
+    array->capacity *= 2;                                     //구조체 멤버변수인 capacity도 똑같이 2배늘려줌
   }
 
-  else
-    array->ptr[array->size++] = value;
+  else                                 //배열이 꽉차지 않은경우
+    array->ptr[array->size++] = value; //마지막 위치에 값을 삽입함
 }
 
 int delete (int_array *array, const int index)
@@ -57,20 +57,7 @@ int delete (int_array *array, const int index)
     return 0;
 }
 
-int is_empty(int_array *array)
-{
-  if (array->size == 0)
-    return 1;
-  else
-    return 0;
-}
-
-int is_full(int_array *array)
-{
-  return array->size == array->capacity;
-}
-
-void print_arr(int_array *array)
+void print_arr(int_array *array) //배열 출력(메소드를 추가했음)
 {
   for (int i = 0; i < array->size; i++)
   {
