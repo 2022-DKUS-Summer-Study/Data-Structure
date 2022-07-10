@@ -4,6 +4,7 @@ typedef struct int_array
 {
   int *ptr;
   int size;
+  int capacity;
 } int_array;
 
 void init(int_array *array, const int capacity); //배열 초기화

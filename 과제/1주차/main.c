@@ -5,7 +5,6 @@
 int main(void)
 {
   int_array L;
-
   init(&L, 100);
   insert(&L, 0, 10);
   insert(&L, 1, 20);
