@@ -20,7 +20,7 @@ int main(void)
   print_arr(&L);
   printf("\n");
 
-  delete (&L, 1);
+  delete (&L, 0);
   print_arr(&L);
 
   free(L.ptr);
