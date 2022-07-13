@@ -81,3 +81,4 @@ void print_arr(int_array *array) //배열 출력(메소드를 추가했음)
   }
 }
 
+
