@@ -49,7 +49,6 @@ void pop(Heap* heap){
     } else {
         heap->data[1] = heap->data[heap->heap_size];    // 마지막 데이터를 루트로 올린다.
         heap->heap_size--; // 크기 1 감소
-        heap_sort(heap->data, heap->heap_size);
         
         int now = 1;    // 루트부터 시작
         int child = 2;  // 왼쪽 자식
